@@ -3,7 +3,7 @@
 function renderLicenseBadge(license) {
   if (license === "MIT" || license === "GPL" || license === "Apache-2.0" || license === "lgpl_2_1" || license === "none") {
     console.log(license);
-    return `![alt text](https://shields.io/category/license/${license.name})`;
+    return `![The name of the license](https://shields.io/category/license/${license.name})`;
   } 
 }
 
@@ -18,9 +18,38 @@ function renderLicenseSection(license) {}
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
+  # Table of Content
+  -[Description](#Description)
+  -[Installation](#Installation)
+  -[Usage](#Usage)
+  -[Licenses](#Licenses)
+  -[Contributing](#Contributing)
+  -[Tests](#Tests)
+  -[Questions](#Questions)
 
-`;
+    ${response.Description}
+##Description:
+
+    ${response.Installation}
+##Installation:
+
+    ${response.Usage}
+##Usage:
+
+    ${response.Licenses}
+##Licenses:
+
+    ${response.Contributing}
+##Contributing:
+
+    ${response.Test}
+##Test:
+
+    ${response.Questions}
+  ##Questions:
+  `;
 }
+renderLicenseBadge();
 
 module.exports = generateMarkdown;
 

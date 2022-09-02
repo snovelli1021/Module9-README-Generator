@@ -11,17 +11,17 @@ function readmeGenPrompt() {
         {
             name: "license",
             type: "input",
+            message: "What is your badge license?"
+        },
+        {
+            name: "github",
+            type: "input",
             message: "What is your Github username?"
         },
         {
-            name: "license",
+            name: "email",
             type: "input",
-            message: "Acceptance Criteria messages"
-        },
-        {
-            name: "license",
-            type: "input",
-            message: "Acceptance Criteria messages"
+            message: "What is your email address?"
         },
     ])
     .then((answers) => console.log(answers))
@@ -33,8 +33,14 @@ function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
 function init() {
-    readmeGenPrompt()
+    readmeGenPrompt(questions)
+    .then((inquirerResponse, data) => {   
+        console.log("Generating README");
+        fs.writeFileSync("README.md", inquirerResponse, data);
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 }
-
 // Function call to initialize app
 init();
