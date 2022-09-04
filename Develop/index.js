@@ -4,24 +4,58 @@ const fs = require("fs/promises");
 const generateMarkdown = require("./utils/generateMarkdown")
 // TODO: Create an array of questions for user input
 const questions = [];
-// finish writing questions-SN
 function readmeGenPrompt() {
     console.log(inquirer.prompt)
     inquirer.prompt([
         {
-            name: "license",
+            name: "Description",
             type: "input",
-            message: "What is your badge license?"
+            message: "Please describe your application.",
+            validate: (value)=> { if(value){return true} else {return "Please add a valid username."}},
+        },
+        {
+            name: "Installation",
+            type: "input",
+            message: "How do you install your application?",
+            validate: (value)=> { if(value){return true} else {return "Please add a valid username."}},
+        },
+        {
+            name: "Usage",
+            type: "input",
+            message: "How do you use your application?",
+            validate: (value)=> { if(value){return true} else {return "Please add a valid username."}},
+        },
+        {
+            name: "License",
+            type: "input",
+            message: "What license does your application use?",
+            choices: ["MIT", "GPL", "Apache-2.0", "lgpl_2_1", "None"],
+            validate: (value)=> { if(value){return true} else {return "Please add a valid username."}},
+        },
+        {
+            name: "Contribution",
+            type: "input",
+            message: "Who or what has contributed to your application?",
+            validate: (value)=> { if(value){return true} else {return "Please add a valid username."}},
+        },
+        {
+            name: "Test",
+            type: "input",
+            // What is "test instructions"
+            message: "Test Instructions",
+            validate: (value)=> { if(value){return true} else {return "Please add a valid username."}},
         },
         {
             name: "github",
             type: "input",
-            message: "What is your Github username?"
+            message: "What is your Github username?",
+            validate: (value)=> { if(value){return true} else {return "Please add a valid username."}},
         },
         {
             name: "email",
             type: "input",
-            message: "What is your email address?"
+            message: "What is your email address?",
+            validate: (value)=> { if(value){return true} else {return "Please add a valid email."}},
         },
     ])
     .then((answers) => console.log(answers))
@@ -29,7 +63,14 @@ function readmeGenPrompt() {
 }
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+fs.writeFile(`./${fileName.tolowercase().split(" ").join("")}.md`,data,(err)=>{
+    if(err){
+        console.log(err);
+    }
+    console.log("Your README has been created!");
+})
+}
 
 // TODO: Create a function to initialize app
 function init() {
@@ -44,3 +85,5 @@ function init() {
 }
 // Function call to initialize app
 init();
+writeToFile();
+generateMarkdown();

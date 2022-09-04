@@ -1,7 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  if (license === "MIT" || license === "GPL" || license === "Apache-2.0" || license === "lgpl_2_1" || license === "none") {
+  if (license === "MIT" || license === "GPL" || license === "Apache-2.0" || license === "lgpl_2_1" || license === "None") {
     console.log(license);
     return `![The name of the license](https://shields.io/category/license/${license.name})`;
   } 
@@ -22,8 +22,8 @@ function generateMarkdown(data) {
   -[Description](#Description)
   -[Installation](#Installation)
   -[Usage](#Usage)
-  -[Licenses](#Licenses)
-  -[Contributing](#Contributing)
+  -[License](#License)
+  -[Contribution](#Contribution)
   -[Tests](#Tests)
   -[Questions](#Questions)
 
@@ -36,11 +36,11 @@ function generateMarkdown(data) {
     ${response.Usage}
 ##Usage:
 
-    ${response.Licenses}
-##Licenses:
+    ${response.License}
+##License:
 
-    ${response.Contributing}
-##Contributing:
+    ${response.Contribution}
+##Contribution:
 
     ${response.Test}
 ##Test:
@@ -50,6 +50,8 @@ function generateMarkdown(data) {
   `;
 }
 renderLicenseBadge();
+renderLicenseLink();
+renderLicenseSection();
 
 module.exports = generateMarkdown;
 
