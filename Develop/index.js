@@ -77,7 +77,7 @@ function init() {
     readmeGenPrompt(questions)
     .then((inquirerResponse, data) => {   
         console.log("Generating README");
-        fs.writeFileSync("README.md", inquirerResponse, data);
+        fs.writeFile("README.md", inquirerResponse, data);
     })
     .catch((err) => {
         console.log(err);
