@@ -16,23 +16,25 @@ function renderLicenseLink(license) {
       text = "Please pick a valid License";
       break;
     case 0:
-      text = "MIT";
+      text = "https://img.shields.io/badge/license-MIT-blue";
       break;
     case 1:
-      text = "GPL";
+      text = "https://img.shields.io/badge/license-GPL-blue";
       break;
     case 2:
-      text = "Apache-2.0";
+      text = "https://img.shields.io/badge/license-Apache%202.0-blue";
       break;
     case 3:
-      text = "None";
+      text = "";
     break;
   }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -41,33 +43,37 @@ function generateMarkdown(data) {
   -[Description](#Description)
   -[Installation](#Installation)
   -[Usage](#Usage)
-  -[License](#License)
+  -[!License](#License)(https://img.shields.io/badge/license-${data.license}-blue)
   -[Contribution](#Contribution)
   -[Tests](#Tests)
   -[Questions](#Questions)
 
-    ${response.Description}
+   
 ##Description:
-
-    ${response.Installation}
+${data.Description}
+    
 ##Installation:
-
-    ${response.Usage}
+${data.Installation}
+    
 ##Usage:
-
-    ${response.License}
+${data.Usage}
+    
 ##License:
-
-    ${response.Contribution}
+${data.License}
+    
 ##Contribution:
-
-    ${response.Test}
+${data.Contribution}
+    
 ##Test:
-
-    ${response.Questions}
-  ##Questions:
-  `;
+${data.Test}
+    
+##Questions:
+${data.Questions}
+  Github: [${data.Github}](https://github.com/${data.Github})
+  Please email me at the address below for any additional questions.
+  EMail: [${data.Email}]`;
 }
+
 renderLicenseBadge();
 renderLicenseLink();
 renderLicenseSection();
