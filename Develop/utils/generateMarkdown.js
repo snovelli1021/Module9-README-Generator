@@ -1,7 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  if (license === "MIT" || license === "GPL" || license === "Apache-2.0" || license === "lgpl_2_1" || license === "None") {
+  if (license === "MIT" || license === "GPL" || license === "Apache-2.0" || license === "None") {
     console.log(license);
     return `![The name of the license](https://shields.io/category/license/${license.name})`;
   } 
@@ -13,18 +13,20 @@ function renderLicenseLink(license) {
 
   switch (new license().getLicense()) {
     default:
-      text = "Pick a License";
+      text = "Please pick a valid License";
       break;
     case 0:
       text = "MIT";
       break;
     case 1:
       text = "GPL";
-      case 2:
+      break;
+    case 2:
       text = "Apache-2.0";
       break;
     case 3:
       text = "None";
+    break;
   }
 }
 

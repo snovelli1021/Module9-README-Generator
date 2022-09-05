@@ -64,13 +64,11 @@ function readmeGenPrompt() {
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-fs.writeFile(`./${fileName.tolowercase().split(" ").join("")}.md`,data,(err)=>{
-    if(err){
-        console.log(err);
-    }
-    console.log("Your README has been created!");
-})
-}
+    fs.writeFile("./output/README.md", fileName, generateMarkdown(data, null, '\t'), (err) =>
+    err ? console.log(err) : console.log('Success!')
+);
+};
+
 
 // TODO: Create a function to initialize app
 function init() {
@@ -81,8 +79,8 @@ function init() {
     })
     .catch((err) => {
         console.log(err);
-    })
-}
+    });
+};
 // Function call to initialize app
 init();
 writeToFile();
