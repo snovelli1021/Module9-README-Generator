@@ -11,29 +11,22 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
 
-  switch (new license().getLicense()) {
+  switch (license) {
+    case "MIT":
+      return "https://img.shields.io/badge/license-MIT-blue";
+    case "GPL":
+      return "https://img.shields.io/badge/license-GPL-blue";
+    case "Apache-2.0":
+      return "https://img.shields.io/badge/license-Apache%202.0-blue";
     default:
-      text = "Please pick a valid License";
-      break;
-    case 0:
-      text = "https://img.shields.io/badge/license-MIT-blue";
-      break;
-    case 1:
-      text = "https://img.shields.io/badge/license-GPL-blue";
-      break;
-    case 2:
-      text = "https://img.shields.io/badge/license-Apache%202.0-blue";
-      break;
-    case 3:
-      text = "";
-    break;
+      return ""; 
   }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-
+  return `#![license](https://img.shields.io/badge/license-${data.license}-blue)`
 }
 
 // TODO: Create a function to generate markdown for README
