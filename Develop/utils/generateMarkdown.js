@@ -13,11 +13,11 @@ function renderLicenseLink(license) {
 
   switch (license) {
     case "MIT":
-      return "https://img.shields.io/badge/license-MIT-blue";
+      return "https://opensource.org/licenses/MIT";
     case "GPL":
-      return "https://img.shields.io/badge/license-GPL-blue";
+      return "https://opensource.org/licenses/GPL-3.0";
     case "Apache-2.0":
-      return "https://img.shields.io/badge/license-Apache%202.0-blue";
+      return "https://opensource.org/licenses/Apache-2.0";
     default:
       return ""; 
   }
@@ -26,45 +26,47 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  //return `#![license](https://img.shields.io/badge/license-${data.license}-blue)`
+  return `![license](https://img.shields.io/badge/license-${license}-blue)`
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
+  ${renderLicenseSection(data.License)}
   # Table of Content
-  -[Description](#Description)
-  -[Installation](#Installation)
-  -[Usage](#Usage)
-  -[!License](#License)(https://img.shields.io/badge/license-${data.license}-blue)
-  -[Contribution](#Contribution)
-  -[Tests](#Tests)
-  -[Questions](#Questions)
+  - [Description](#Description)
+  - [Installation](#Installation)
+  - [Usage](#Usage)
+  - [License](#License)
+  - [Contribution](#Contribution)
+  - [Tests](#Tests)
+  - [Questions](#Questions)
 
    
-##Description:
+## Description:
 ${data.Description}
     
-##Installation:
+## Installation:
 ${data.Installation}
     
-##Usage:
+## Usage:
 ${data.Usage}
     
-##License:
+## License:
 ${data.License}
+[License](${renderLicenseLink(data.License)})
     
-##Contribution:
+## Contribution:
 ${data.Contribution}
     
-##Test:
+## Test:
 ${data.Test}
     
-##Questions:
+## Questions:
 ${data.Questions}
-  Github: [${data.Github}](https://github.com/${data.Github})
+  Github: ${data.Github}(https://github.com/${data.Github})
   Please email me at the address below for any additional questions.
-  EMail: [${data.Email}]`;
+  EMail: ${data.Email}`;
 }
 
 `[Assignment Video](https://drive.google.com/file/d/13wNHhaXvCfpThvGope2WCGFoFuCzp9pg/view)`

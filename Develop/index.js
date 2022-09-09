@@ -4,7 +4,7 @@ const fs = require("fs/promises");
 const generateMarkdown = require("./utils/generateMarkdown.js")
 // TODO: Create an array of questions for user input
 function readmeGenPrompt() {
-      inquirer.prompt([
+    return inquirer.prompt([
         {
             name: "Title",
             type: "input",
@@ -52,10 +52,9 @@ function readmeGenPrompt() {
             message: "What is your email address?",
         },
     ])
-    
-    .then((answers) => console.log(answers))
-    .catch((err) => console.error(err))
-    return answers;
+
+    // .then((answers) => console.log(answers))
+    // .catch((err) => console.error(err))
 }
 
 // TODO: Create a function to write README file
