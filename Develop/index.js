@@ -52,9 +52,6 @@ function readmeGenPrompt() {
             message: "What is your email address?",
         },
     ])
-
-    // .then((answers) => console.log(answers))
-    // .catch((err) => console.error(err))
 }
 
 // TODO: Create a function to write README file

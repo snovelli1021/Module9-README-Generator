@@ -41,6 +41,7 @@ function generateMarkdown(data) {
   - [Contribution](#Contribution)
   - [Tests](#Tests)
   - [Questions](#Questions)
+  - [Video](#Video)
 
    
 ## Description:
@@ -63,13 +64,16 @@ ${data.Contribution}
 ${data.Test}
     
 ## Questions:
-
   Please find my contact details below. <br/>
   Github: https://github.com/${data.Github} <br/>
-  EMail: ${data.Email}`;
+  EMail: ${data.Email}
+
+## Video:
+[Screencastify Video](https://drive.google.com/file/d/1cs1im-W5NSfhCJ3iAKZ-Hmwkvzms3Ubl/view)`;
 }
 
-`[Assignment Video](https://drive.google.com/file/d/13wNHhaXvCfpThvGope2WCGFoFuCzp9pg/view)`
+
+
 
 renderLicenseBadge();
 renderLicenseLink();
